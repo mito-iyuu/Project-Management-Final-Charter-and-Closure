@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Charter - Data Analytics Job Entry</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #2c3e50;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Top nav across all pages */
+.top-nav {
+    max-width: 1200px;
+    margin: 0 auto 16px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 999px;
+    padding: 8px 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #495057;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.top-nav a:hover {
+    background: #e9ecef;
+}
+
+.top-nav a.active {
+    background: #667eea;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/><rect fill="rgba(255,255,255,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+    opacity: 0.5;
+}
+
+.header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    font-size: 18px;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    font-weight: 300;
+}
+
+.nav-pills {
+    background: #f8f9fa;
+    padding: 20px 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e9ecef;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.nav-pill {
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.nav-pill:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.content {
+    padding: 40px;
+}
+
+.student-info {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-left: 5px solid #1976d2;
+}
+
+.student-info h3 {
+    color: #1565c0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #1565c0;
+    font-size: 13px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.section {
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.section-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+    user-select: none;
+}
+
+.section-header:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.section-title {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toggle-icon {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    color: #6c757d;
+}
+
+.section.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.section-content {
+    padding: 30px;
+    display: block;
+}
+
+.section.collapsed .section-content {
+    display: none;
+}
+
+.placeholder {
+    background: #fff9e6;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px 0;
+}
+
+.placeholder h4 {
+    color: #f57c00;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.placeholder p {
+    color: #5d4037;
+    line-height: 1.7;
+}
+
+.scope-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.scope-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 5px solid transparent;
+    transition: transform 0.3s ease;
+}
+
+.scope-card:hover {
+    transform: translateY(-5px);
+}
+
+.scope-card.in-scope {
+    border-left-color: #4caf50;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+}
+
+.scope-card.roadmap {
+    border-left-color: #2196f3;
+    background: linear-gradient(135deg, #e3f2fd 0%, #f1f7fc 100%);
+}
+
+.scope-card.out-scope {
+    border-left-color: #f44336;
+    background: linear-gradient(135deg, #ffebee 0%, #fcf1f1 100%);
+}
+
+.scope-card h4 {
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.scope-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.scope-card ul li {
+    padding: 8px 0 8px 25px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.scope-card ul li::before {
+    content: '•';
+    position: absolute;
+    left: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.scope-card.in-scope ul li::before {
+    color: #4caf50;
+}
+
+.scope-card.roadmap ul li::before {
+    color: #2196f3;
+}
+
+.scope-card.out-scope ul li::before {
+    color: #f44336;
+}
+
+.stakeholder-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.stakeholder-table th {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stakeholder-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.stakeholder-table tr:hover {
+    background: #f8f9fa;
+}
+
+.stakeholder-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.grid-placeholder {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.grid-placeholder h4 {
+    text-align: center;
+    color: #495057;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.grid-placeholder > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-placeholder > div > div {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.grid-placeholder strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.grid-placeholder ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.grid-placeholder ul li {
+    padding: 6px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.grid-placeholder ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 40px 20px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .nav-pills {
+        padding: 15px 20px;
+    }
+
+    .info-grid, .scope-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-placeholder > div {
+        grid-template-columns: 1fr;
+    }
+
+    .stakeholder-table {
+        font-size: 12px;
+    }
+
+    .stakeholder-table th,
+    .stakeholder-table td {
+        padding: 10px 8px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html" class="active">Project Charter</a>
+    <a href="status.html">Status Reports</a>
+    <a href="docs.html">Additional Docs</a>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h1>Data Analytics Job Entry</h1>
+        <p>Project Charter - Managing IT Projects Course</p>
+    </div>
+
+    <div class="nav-pills">
+        <div class="nav-pill" onclick="scrollToSection('student-info')">Student Info</div>
+        <div class="nav-pill" onclick="scrollToSection('section-1')">Project Description</div>
+        <div class="nav-pill" onclick="scrollToSection('section-2')">Vision &amp; Mission</div>
+        <div class="nav-pill" onclick="scrollToSection('section-3')">Business Case</div>
+        <div class="nav-pill" onclick="scrollToSection('section-4')">Scope</div>
+        <div class="nav-pill" onclick="scrollToSection('section-5')">Stakeholders</div>
+        <div class="nav-pill" onclick="scrollToSection('section-6')">Methodology</div>
+        <div class="nav-pill" onclick="scrollToSection('section-7')">Tools</div>
+        <div class="nav-pill" onclick="scrollToSection('section-8')">Deliverables</div>
+        <div class="nav-pill" onclick="scrollToSection('section-9')">WBS</div>
+        <div class="nav-pill" onclick="scrollToSection('section-10')">Budget</div>
+    </div>
+
+    <div class="content">
+        <!-- Student Info -->
+        <div class="student-info" id="student-info">
+            <h3>Student Information</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Student Name:</div>
+                    <div class="info-value">Tehreem Fatima Butt</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Course:</div>
+                    <div class="info-value">Managing IT Projects</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Semester:</div>
+                    <div class="info-value">Fall 2025</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Project Description -->
+        <div class="section" id="section-1">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">📋 1. Project Title &amp; Description</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Project Title: Data Analytics Job Entry</h3>
+                <p>Apply to at least one Data Analytics position using compiled material that showcases my skills/projects in an easy-to-navigate way while also being visually interesting.</p>
+            </div>
+        </div>
+
+        <!-- 2. Vision & Mission -->
+        <div class="section" id="section-2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">🎯 2. Vision, Mission &amp; Strategy Alignment</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="placeholder">
+                    <h4>Personal Mission Connection:</h4>
+                    <p>My mission is to gain more experience, gain more valuable skills in data analytics, and to actually enjoy the work that I do. This project supports my personal mission by providing a base platform where I can continue to add new skills and projects I will accumulate over time. It provides me with a tangible incentive so I can stay motivated in becoming more skilled in Data Analytics.</p>
+                    <h4>Vision Alignment:</h4>
+                    <p>My vision is to have a data analytics position in a company whose values I align with, and to be recognized for providing valuable analysis that brings improvement to the business. This portfolio will greatly help me find entry in my preferred job market, which is Data Analytics. This portfolio will allow me to confidently submit and pursue positions in data analytics that I would previously not be able to confidently do.</p>
+                    <h4>Strategic Goal Support:</h4>
+                    <p>This will help me accomplish my strategic goal of using the portfolio to apply to at least one Data Analytics internship/position by the end of the semester. Having a collection of all my projects/skills (or overall achievements) that I can easily submit will make showcasing myself to businesses that are hiring more efficient.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Business Case -->
+        <div class="section" id="section-3">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">💼 3. Business Case &amp; Justification</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="placeholder">
+                    <h4>Professional Value:</h4>
+                    <p>This project will help me pursue my preferred career as it will be a collection of all my skills, projects, and achievements.</p>
+                    <h4>Personal Value:</h4>
+                    <p>This project provides me with a tangible incentive to continue improving and adding to. It allows me to organize and evaluate all my skills and projects that I have accumulated so far.</p>
+                    <h4>Learning Outcomes:</h4>
+                    <p>I believe the main takeaway I will get from this project is project management skills. I have never really worked on a long-term project before, and it makes me aware of aspects of managing a project I never thought of before.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Scope -->
+        <div class="section" id="section-4">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">🔍 4. High-Level Scope</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="scope-grid">
+                    <div class="scope-card in-scope">
+                        <h4>✅ In Scope for Semester Project</h4>
+                        <ul>
+                            <li>A responsive website with a clean, professional design</li>
+                            <li>A home page with an introduction and summary about me</li>
+                            <li>A portfolio section showing 2 data analytics projects with visuals and short explanations</li>
+                            <li>A resume page with a downloadable PDF option</li>
+                            <li>A contact form for messages</li>
+                            <li>A section showing relevant certifications (Google Data Analytics)</li>
+                        </ul>
+                    </div>
+                    <div class="scope-card roadmap">
+                        <h4>🗺️ Roadmap Items (≤6 Months)</h4>
+                        <ul>
+                            <li>Interactive dashboards using Tableau, Power BI, or Python</li>
+                            <li>Links to LinkedIn and GitHub for automatic updates</li>
+                            <li>Updates/new project additions</li>
+                            <li>A custom domain name</li>
+                        </ul>
+                    </div>
+                    <div class="scope-card out-scope">
+                        <h4>❌ Out of Scope</h4>
+                        <ul>
+                            <li>Build a big company-level data system</li>
+                            <li>Set up automatic data pipelines that refresh by themselves</li>
+                            <li>Add advanced AI features (like chatbots or recommendations)</li>
+                            <li>Create a mobile app version of the portfolio</li>
+                            <li>Support multiple languages</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Stakeholders -->
+        <div class="section" id="section-5">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">👥 5. Stakeholder Register</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <table class="stakeholder-table">
+                    <thead>
+                        <tr>
+                            <th>Stakeholder</th>
+                            <th>Category</th>
+                            <th>Role/Interest</th>
+                            <th>Power</th>
+                            <th>Interest</th>
+                            <th>Engagement Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Professor / Instructor</td>
+                            <td>Internal</td>
+                            <td>Course owner; evaluates deliverables and gives feedback</td>
+                            <td>High</td>
+                            <td>High</td>
+                            <td>Manage Closely – provide regular updates; follow feedback and meet requirements.</td>
+                        </tr>
+                        <tr>
+                            <td>Classmates / Peer Reviewers</td>
+                            <td>Internal</td>
+                            <td>Peers who review drafts and provide feedback</td>
+                            <td>Low</td>
+                            <td>Medium</td>
+                            <td>Keep Informed – share drafts and collect feedback during peer reviews.</td>
+                        </tr>
+                        <tr>
+                            <td>Potential Employers</td>
+                            <td>External</td>
+                            <td>End-audience who will evaluate portfolio quality and relevance</td>
+                            <td>High</td>
+                            <td>High</td>
+                            <td>Manage Closely – ensure the portfolio is professional, relevant, and easy to navigate.</td>
+                        </tr>
+                        <tr>
+                            <td>Family &amp; Friends</td>
+                            <td>External</td>
+                            <td>Support network; provides informal feedback</td>
+                            <td>Low</td>
+                            <td>Medium</td>
+                            <td>Keep Informed – share progress and finished work for encouragement and feedback.</td>
+                        </tr>
+                        <tr>
+                            <td>LinkedIn Network</td>
+                            <td>External</td>
+                            <td>Professional network; helps visibility and connections</td>
+                            <td>Medium</td>
+                            <td>High</td>
+                            <td>Keep Informed – publish updates and the portfolio link for discovery.</td>
+                        </tr>
+                        <tr>
+                            <td>GitHub</td>
+                            <td>External</td>
+                            <td>Public code hosting and community visibility</td>
+                            <td>Low</td>
+                            <td>Medium</td>
+                            <td>Monitor – host code/projects; lightly monitor interactions.</td>
+                        </tr>
+                        <tr>
+                            <td>Regulatory (Data Privacy/Academic Integrity Policies)</td>
+                            <td>Regulatory</td>
+                            <td>Policies that the project must comply with</td>
+                            <td>High</td>
+                            <td>Low</td>
+                            <td>Keep Satisfied – follow privacy, copyright, and academic honesty guidelines.</td>
+                        </tr>
+                        <tr>
+                            <td>Future Clients / Project Collaborators</td>
+                            <td>External</td>
+                            <td>Potential partners who may contact based on the portfolio</td>
+                            <td>Medium</td>
+                            <td>High</td>
+                            <td>Keep Informed – use the portfolio as a showcase; respond to inquiries.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="grid-placeholder">
+                    <h4>Power–Interest Grid</h4>
+                    <div>
+                        <div style="border-left:4px solid #4caf50;">
+                            <strong>Manage Closely (High Power, High Interest)</strong>
+                            <ul>
+                                <li>Professor / Instructor</li>
+                                <li>Potential Employers</li>
+                            </ul>
+                        </div>
+                        <div style="border-left:4px solid #ffc107;">
+                            <strong>Keep Satisfied (High Power, Low Interest)</strong>
+                            <ul>
+                                <li>Regulatory (Data Privacy/Academic Integrity Policies)</li>
+                            </ul>
+                        </div>
+                        <div style="border-left:4px solid #2196f3;">
+                            <strong>Keep Informed (Low Power, High Interest)</strong>
+                            <ul>
+                                <li>Classmates / Peer Reviewers</li>
+                                <li>LinkedIn Network</li>
+                                <li>Future Clients / Project Collaborators</li>
+                            </ul>
+                        </div>
+                        <div style="border-left:4px solid #9e9e9e;">
+                            <strong>Monitor (Low Power, Low Interest)</strong>
+                            <ul>
+                                <li>GitHub</li>
+                                <li>Family &amp; Friends</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 6. Methodology -->
+        <div class="section" id="section-6">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">⚙️ 6. Project Methodology</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Explanation:</h3>
+                <div class="placeholder">
+                    <h4>My requirements are well-defined and unlikely to change → Predictive</h4>
+                    <p>For my project, predictive is a good methodology as it is straightforward and works with my schedule throughout the semester. It defines a start and an end which allows me to stay on task, and lets me comfortably build my portfolio piece by piece.</p>
+                </div>
+                <img alt="Project Roadmap" src="Roadmap.png"/>
+            </div>
+        </div>
+
+        <!-- 7. Tools -->
+        <div class="section" id="section-7">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">🛠️ 7. Project Tool Selection</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Explanation:</h3>
+                <div class="placeholder">
+                    <h4>I chose Microsoft Project (Planner)</h4>
+                    <p>I chose Microsoft Project (Planner) as my tool for this project because it is well-suited for predictive project management. My project has a fixed end date at the end of the semester, and Microsoft Project allows me to create a detailed schedule with clear dependencies, milestones, and deadlines. Its calendar functionality helps visualize the timeline, ensuring tasks are completed in sequence and on time. This level of structure and control supports the predictive methodology's focus on upfront planning and minimizing risks.</p>
+                </div>
+                <img alt="Microsoft Planner Screenshot" src="pm_microsoftPlanner.png"/>
+            </div>
+        </div>
+
+        <!-- 8. Deliverables -->
+        <div class="section" id="section-8">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">📦 8. Deliverables &amp; Definition of Done</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <table class="stakeholder-table">
+                    <thead>
+                        <tr>
+                            <th>Deliverable Name</th>
+                            <th>Type</th>
+                            <th>SMART Description</th>
+                            <th>Definition of Done</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Resume</td>
+                            <td>Tangible Outcome</td>
+                            <td>A complete and updated resume with all areas filled out, organized, and reviewed. Complete by the end of the semester (December).</td>
+                            <td>All sections filled. Updated to the most current information. Reviewed by trusted individuals.</td>
+                        </tr>
+                        <tr>
+                            <td>Hollywood Farmers Market Data Analytics Project</td>
+                            <td>Tangible Outcome</td>
+                            <td>Updated, compiled, and polished analytics project that will be ready by October.</td>
+                            <td>The project is formatted for the portfolio, all relevant visualizations are compiled and organized, and the project is reviewed by trusted individuals.</td>
+                        </tr>
+                        <tr>
+                            <td>AirBnB LA Data Analytics Project</td>
+                            <td>Tangible Outcome</td>
+                            <td>Updated, compiled, and polished analytics project that will be ready by October.</td>
+                            <td>The project is formatted for the portfolio, all relevant visualizations are compiled and organized, and the project is reviewed by trusted individuals.</td>
+                        </tr>
+                        <tr>
+                            <td>Google Data Analytics Certificate</td>
+                            <td>Tangible Outcome</td>
+                            <td>Complete Data Analytics certification provided by Google by the end of the semester (December).</td>
+                            <td>The certificate is granted and ready to be uploaded into my portfolio.</td>
+                        </tr>
+                        <tr>
+                            <td>Job Application</td>
+                            <td>Tangible Outcome</td>
+                            <td>Submit one complete application for a Data Analytics internship/position using the portfolio by December 2025.</td>
+                            <td>Position identified, portfolio link included in application, customized materials submitted, confirmation received.</td>
+                        </tr>
+                        <tr>
+                            <td>Job Gap Analysis</td>
+                            <td>Tangible Outcome</td>
+                            <td>Research and create document discussing skill expectations of Data Analytics positions comparing to my current skills by December 2025.</td>
+                            <td>Position(s) identified, links for job listings included, document with my analysis completed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 9. WBS -->
+        <div class="section" id="section-9">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">🧾 9. Full Work Breakdown Structure (WBS)</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <table class="stakeholder-table">
+                    <thead>
+                        <tr>
+                            <th>WBS ID</th>
+                            <th>Level</th>
+                            <th>Task/Work Package Name</th>
+                            <th>Duration</th>
+                            <th>Dependencies (WBS ID &amp; Name)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Deliverable</td><td>Portfolio</td><td>Total 34 days</td><td></td></tr>
+                        <tr><td>1.1</td><td>Work Package</td><td>Start Portfolio</td><td>3 days</td><td></td></tr>
+                        <tr><td>1.1.1</td><td>Task</td><td>Decide what platform to develop portfolio on</td><td>1 day</td><td></td></tr>
+                        <tr><td>1.1.2</td><td>Task</td><td>Decide how portfolio should be organized</td><td>1 day</td><td></td></tr>
+                        <tr><td>1.1.3</td><td>Task</td><td>Create pages</td><td>1 day</td><td>1.1.1 Decide what platform to develop portfolio on</td></tr>
+                        <tr><td>1.2</td><td>Work Package</td><td>Develop Home page</td><td>7 days</td><td>1.1.3 Create pages</td></tr>
+                        <tr><td>1.2.1</td><td>Task</td><td>Create home page layout</td><td>2 days</td><td>1.1.3 Create pages</td></tr>
+                        <tr><td>1.2.2</td><td>Task</td><td>Add relevant images</td><td>2 days</td><td>1.2.1 Create home page layout</td></tr>
+                        <tr><td>1.2.3</td><td>Task</td><td>Include elevator pitch</td><td>1 day</td><td>1.2.1 Create home page layout</td></tr>
+                        <tr><td>1.2.4</td><td>Task</td><td>Add navigation to other pages</td><td>1 day</td><td>1.1.3 Create pages</td></tr>
+                        <tr><td>1.3</td><td>Work Package</td><td>Develop Works pages</td><td>20 days</td><td>1.1.3 Create pages</td></tr>
+                        <tr><td>1.3.1</td><td>Task</td><td>Create work page layout</td><td>2 days</td><td>1.1.3 Create pages</td></tr>
+                        <tr><td>1.3.2</td><td>Task</td><td>Build dashboard</td><td>2 days</td><td>1.3.1 Create work page layout</td></tr>
+                        <tr><td>1.3.3</td><td>Task</td><td>Add Hollywood Farmers Market project</td><td>5 days</td><td>4 Data Analytics Project: Hollywood Farmers Market</td></tr>
+                        <tr><td>1.3.4</td><td>Task</td><td>Add AirBnB Project</td><td>5 days</td><td>5 Data Analytics Project: AirBnB LA</td></tr>
+                        <tr><td>1.3.5</td><td>Task</td><td>Include interactive design</td><td>5 days</td><td>1.3.3 Add relevant projects/deliverables</td></tr>
+                        <tr><td>1.3.6</td><td>Task</td><td>Add certificates</td><td>1 day</td><td>3 Google Data Analytics Certificate</td></tr>
+                        <tr><td>1.4</td><td>Work Package</td><td>Develop contact page</td><td>4 days</td><td>1.1.3 Create pages</td></tr>
+                        <tr><td>1.4.1</td><td>Task</td><td>Create contact page layout</td><td>2 days</td><td>1.1.3 Create pages</td></tr>
+                        <tr><td>1.4.2</td><td>Task</td><td>Insert current contact information</td><td>1 day</td><td>1.4.1 Create contact page layout</td></tr>
+                        <tr><td>1.4.3</td><td>Task</td><td>Add resume pdf</td><td>1 day</td><td>2 Resume</td></tr>
+                        <tr><td>2</td><td>Deliverable</td><td>Resume</td><td>Total 5 days</td><td></td></tr>
+                        <tr><td>2.1</td><td>Work Package</td><td>Start Resume</td><td>5 days</td><td></td></tr>
+                        <tr><td>2.1.1</td><td>Task</td><td>Gather previous resume content</td><td>1 day</td><td></td></tr>
+                        <tr><td>2.1.2</td><td>Task</td><td>Reformat resume</td><td>2 days</td><td>2.1.1 Gather previous resume content</td></tr>
+                        <tr><td>2.1.3</td><td>Task</td><td>Update resume with new skills and projects</td><td>2 days</td><td>2.1.1 Gather previous resume content</td></tr>
+                        <tr><td>3</td><td>Deliverable</td><td>Google Data Analytics Certificate</td><td>Total 10 days</td><td></td></tr>
+                        <tr><td>3.1</td><td>Work Package</td><td>Start Google Data Analytics Certificate</td><td>10 days</td><td></td></tr>
+                        <tr><td>3.1.1</td><td>Task</td><td>Research certification requirements</td><td>2 days</td><td></td></tr>
+                        <tr><td>3.1.2</td><td>Task</td><td>Prepare study schedule</td><td>2 days</td><td>3.1.1 Research certification requirements</td></tr>
+                        <tr><td>3.1.3</td><td>Task</td><td>Complete modules</td><td>5 days (each)</td><td>3.1.2 Prepare study schedule</td></tr>
+                        <tr><td>3.1.4</td><td>Task</td><td>Take exam</td><td>1 day</td><td>3.1.3 Complete Modules</td></tr>
+                        <tr><td>4</td><td>Deliverable</td><td>Data Analytics Project: Hollywood Farmers Market</td><td>Total 7 days</td><td></td></tr>
+                        <tr><td>4.1</td><td>Work Package</td><td>Prepare completed project for portfolio</td><td>7 days</td><td></td></tr>
+                        <tr><td>4.1.1</td><td>Task</td><td>Gather existing files and datasets</td><td>1 day</td><td></td></tr>
+                        <tr><td>4.1.2</td><td>Task</td><td>Write project summary and key insights</td><td>2 days</td><td>4.1.1 Gather existing files and datasets</td></tr>
+                        <tr><td>4.1.3</td><td>Task</td><td>Update and reformat visuals for portfolio</td><td>3 days</td><td>4.1.1 Gather existing files and datasets</td></tr>
+                        <tr><td>4.1.4</td><td>Task</td><td>Review and polish formatting</td><td>1 day</td><td>4.1.1 Gather existing files and datasets</td></tr>
+                        <tr><td>5</td><td>Deliverable</td><td>Data Analytics Project: AirBnB LA</td><td>Total 7 days</td><td></td></tr>
+                        <tr><td>5.1</td><td>Work Package</td><td>Prepare completed project for portfolio</td><td>7 days</td><td></td></tr>
+                        <tr><td>5.1.1</td><td>Task</td><td>Gather existing files and datasets</td><td>1 day</td><td></td></tr>
+                        <tr><td>5.1.2</td><td>Task</td><td>Write project summary and key insights</td><td>2 days</td><td>5.1.1 Gather existing files and datasets</td></tr>
+                        <tr><td>5.1.3</td><td>Task</td><td>Update and reformat visuals for portfolio</td><td>3 days</td><td>5.1.1 Gather existing files and datasets</td></tr>
+                        <tr><td>5.1.4</td><td>Task</td><td>Review and polish formatting</td><td>1 day</td><td>5.1.1 Gather existing files and datasets</td></tr>
+                        <tr><td>6</td><td>Deliverable</td><td>Job Gap Analysis</td><td>Total 3 days</td><td></td></tr>
+                        <tr><td>6.1</td><td>Work Package</td><td>Research Data Analytics position skill requirements/expectations</td><td>2 days</td><td></td></tr>
+                        <tr><td>6.2</td><td>Work Package</td><td>Job Gap Analysis report</td><td>1 day</td><td></td></tr>
+                        <tr><td>7</td><td>Deliverable</td><td>Job Application</td><td>Total 1 day</td><td></td></tr>
+                        <tr><td>7.1</td><td>Work Package</td><td>Select Data Analytics position</td><td>1 day</td><td></td></tr>
+                        <tr><td>7.2</td><td>Work Package</td><td>Proof of Applying</td><td>1 day</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 10. Budget -->
+        <div class="section" id="section-10">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2 class="section-title">💵 10. Project Budget Summary</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 10px; background: #f8f9fa; margin: 5px 0; border-radius: 5px;">
+                        <strong>Labor Total:</strong> $21,040.00
+                    </li>
+                    <li style="padding: 10px; background: #f8f9fa; margin: 5px 0; border-radius: 5px;">
+                        <strong>Non-Labor Total:</strong> $21,067.00
+                    </li>
+                    <li style="padding: 10px; background: #f8f9fa; margin: 5px 0; border-radius: 5px;">
+                        <strong>Contingency:</strong> $4,246.40
+                    </li>
+                    <li style="padding: 10px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; margin: 5px 0; border-radius: 5px; font-size: 18px;">
+                        <strong>Grand Total:</strong> $46,353.40
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div> <!-- /.content -->
+</div> <!-- /.container -->
+
+<script>
+function toggleSection(header) {
+    const section = header.parentElement;
+    section.classList.toggle('collapsed');
+}
+
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+</script>
+</body>
+</html>
