@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weekly Status Reports - Data Analytics Job Entry</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #2c3e50;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Top nav across all pages */
+.top-nav {
+    max-width: 1200px;
+    margin: 0 auto 16px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 999px;
+    padding: 8px 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #495057;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.top-nav a:hover {
+    background: #e9ecef;
+}
+
+.top-nav a.active {
+    background: #667eea;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/><rect fill="rgba(255,255,255,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+    opacity: 0.5;
+}
+
+.header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.header p {
+    font-size: 16px;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    padding: 30px 40px 40px;
+}
+
+/* STATUS REPORT STYLES (simpler, text-focused) */
+
+.status-article {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #24292f;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.status-article h1,
+.status-article h2,
+.status-article h3,
+.status-article h4 {
+    font-weight: 600;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    line-height: 1.25;
+}
+
+.status-article h1 {
+    font-size: 2rem;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.3em;
+    margin-top: 0;
+}
+
+.status-article h2 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.3em;
+}
+
+.status-article h3 {
+    font-size: 1.2rem;
+}
+
+.status-article p {
+    margin-bottom: 1em;
+}
+
+.status-article ul,
+.status-article ol {
+    margin: 0 0 1em 1.5em;
+}
+
+.status-article li {
+    margin-bottom: 0.3em;
+}
+
+.status-week-heading {
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+}
+
+.status-week-meta {
+    font-size: 0.9rem;
+    color: #57606a;
+    margin-bottom: 0.8em;
+}
+
+.health-pill {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 8px;
+}
+
+.health-pill.on-track {
+    background: #dafbe1;
+    color: #116329;
+    border: 1px solid #4ac26b;
+}
+
+.health-pill.at-risk {
+    background: #fff8c5;
+    color: #9a6700;
+    border: 1px solid #e3b341;
+}
+
+.health-pill.delayed {
+    background: #ffebe9;
+    color: #cf222e;
+    border: 1px solid #ff8182;
+}
+
+.status-milestone-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.6em 0 1.2em;
+    font-size: 0.9rem;
+}
+
+.status-milestone-table th,
+.status-milestone-table td {
+    border: 1px solid #d0d7de;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+.status-milestone-table th {
+    background: #f6f8fa;
+    font-weight: 600;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html">Project Charter</a>
+    <a href="status.html" class="active">Status Reports</a>
+    <a href="docs.html">Additional Docs</a>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h1>Weekly Status Reports</h1>
+        <p>Tracking progress for the Data Analytics Job Entry project.</p>
+    </div>
+
+    <div class="content">
+        <div class="status-article">
+            <h1>Progress Status Reports</h1>
+            <p>
+                Weekly status reports provide a regular update on project progress, highlight key accomplishments,
+                and call out issues or risks that may impact the final deliverables.
+            </p>
+
+            <h2>Weekly Reports</h2>
+
+            <!-- Week 10 -->
+            <div>
+                <div class="status-week-heading">
+                    Week 10 (Reporting Period: Week 10)
+                    <span class="health-pill at-risk">At Risk</span>
+                </div>
+                <div class="status-week-meta">
+                    Overall health: certificate work slightly behind; portfolio and job application milestones remain achievable.
+                </div>
+
+                <h3>Project Health</h3>
+                <p>
+                    <strong>Status:</strong> At Risk for the Google Data Analytics certificate; On Track for portfolio and job application.
+                </p>
+
+                <h3>Executive Summary</h3>
+                <p>
+                    Continued setting up the portfolio website, progressed on the Google Data Analytics certificate,
+                    worked on a new data analytics project, and started the job gap analysis. Certificate pacing is a bit behind,
+                    but key semester goals are still realistic.
+                </p>
+
+                <h3>✅ Accomplishments This Week</h3>
+                <ol>
+                    <li>Made progress on the Google Data Analytics certificate modules.</li>
+                    <li>Advanced work on a new data analytics project for possible portfolio inclusion.</li>
+                    <li>Started outlining and drafting the job gap analysis deliverable.</li>
+                </ol>
+
+                <h3>📅 Plan for Next Week</h3>
+                <ol>
+                    <li>Finish the home page layout for the portfolio site.</li>
+                    <li>Continue working through the Google Data Analytics certificate.</li>
+                    <li>Search for and shortlist Data Analytics positions to apply for.</li>
+                    <li>List key skill gaps and continue the gap analysis document.</li>
+                </ol>
+
+                <h3>📌 Upcoming Milestones</h3>
+                <table class="status-milestone-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Target Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Data Analytics Certificate</td>
+                            <td>11/29/2025</td>
+                            <td>At Risk</td>
+                        </tr>
+                        <tr>
+                            <td>Complete Portfolio</td>
+                            <td>11/30/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                        <tr>
+                            <td>Apply to Job Position</td>
+                            <td>12/09/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>⚠️ Issues &amp; Risks / Mitigations</h3>
+                <ul>
+                    <li>
+                        <strong>Risk:</strong> Falling behind on Google Data Analytics certificate content.<br/>
+                        <strong>Mitigation:</strong> Reserve 2–3 evenings for focused certificate work and shift lower-priority tasks.
+                    </li>
+                </ul>
+
+                <h3>🔄 Changes Since Last Report</h3>
+                <ul>
+                    <li>New data analytics project added as a potential portfolio item.</li>
+                    <li>Job gap analysis deliverable officially initiated.</li>
+                </ul>
+            </div>
+
+            <!-- Week 9 -->
+            <div>
+                <div class="status-week-heading">
+                    Week 9 (Reporting Period: Week 9)
+                    <span class="health-pill at-risk">At Risk</span>
+                </div>
+                <div class="status-week-meta">
+                    Portfolio base not yet set up; certificate pacing is slow but still recoverable.
+                </div>
+
+                <h3>Project Health</h3>
+                <p>
+                    <strong>Status:</strong> At Risk for certificate progress; On Track for portfolio organization and resume.
+                </p>
+
+                <h3>Executive Summary</h3>
+                <p>
+                    Data analytics projects have been gathered and are being organized. A checklist for resume updates is ready,
+                    and a resume template has been selected. The main risk is that the portfolio site base has not yet been created.
+                </p>
+
+                <h3>✅ Accomplishments This Week</h3>
+                <ol>
+                    <li>Organized the Airbnb LA report.</li>
+                    <li>Organized Hollywood Farmers Market visuals and report.</li>
+                    <li>Created a checklist of resume updates and selected a resume template.</li>
+                </ol>
+
+                <h3>📅 Plan for Next Week</h3>
+                <ol>
+                    <li>Set up the initial structure for the portfolio website.</li>
+                    <li>Continue work on the Google Data Analytics certificate.</li>
+                    <li>Complete the revised resume.</li>
+                    <li>Begin searching for Data Analytics job opportunities.</li>
+                </ol>
+
+                <h3>📌 Upcoming Milestones</h3>
+                <table class="status-milestone-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Target Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Data Analytics Certificate</td>
+                            <td>11/29/2025</td>
+                            <td>At Risk</td>
+                        </tr>
+                        <tr>
+                            <td>Complete Portfolio</td>
+                            <td>11/30/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                        <tr>
+                            <td>Apply to Job Position</td>
+                            <td>12/09/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>⚠️ Issues &amp; Risks / Mitigations</h3>
+                <ul>
+                    <li>
+                        <strong>Risk:</strong> Delay in setting up portfolio base and staying on pace with certificate modules.<br/>
+                        <strong>Mitigation:</strong> Prioritize creating the portfolio scaffold first, then schedule shorter, daily certificate sessions.
+                    </li>
+                </ul>
+
+                <h3>🔄 Changes Since Last Report</h3>
+                <ul>
+                    <li>Raised concern about being behind on certificate and website setup.</li>
+                </ul>
+            </div>
+
+            <!-- Week 8 -->
+            <div>
+                <div class="status-week-heading">
+                    Week 8 (Reporting Period: Week 8)
+                    <span class="health-pill on-track">On Track</span>
+                </div>
+
+                <h3>Project Health</h3>
+                <p>
+                    <strong>Status:</strong> On Track overall; exploring tools and organizing content.
+                </p>
+
+                <h3>Executive Summary</h3>
+                <p>
+                    Data analytics projects are being collected and reviewed. Several website builders have been tested,
+                    and certificate work is underway. Foundation work for future weeks is progressing as expected.
+                </p>
+
+                <h3>✅ Accomplishments This Week</h3>
+                <ol>
+                    <li>Tested a few website builders for the portfolio.</li>
+                    <li>Reviewed existing data analytics projects.</li>
+                    <li>Worked on the Google Data Analytics certificate course.</li>
+                </ol>
+
+                <h3>📅 Plan for Next Week</h3>
+                <ol>
+                    <li>Set up the initial portfolio website.</li>
+                    <li>Continue certificate progress.</li>
+                    <li>Start a revised resume draft.</li>
+                    <li>Begin looking for Data Analytics job postings.</li>
+                </ol>
+
+                <h3>📌 Upcoming Milestones</h3>
+                <table class="status-milestone-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Target Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Data Analytics Certificate</td>
+                            <td>11/29/2025</td>
+                            <td>At Risk</td>
+                        </tr>
+                        <tr>
+                            <td>Complete Portfolio</td>
+                            <td>11/30/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                        <tr>
+                            <td>Apply to Job Position</td>
+                            <td>12/09/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔄 Changes Since Last Report</h3>
+                <ul>
+                    <li>Moved from just planning to actively testing portfolio tools and organizing project content.</li>
+                </ul>
+            </div>
+
+            <!-- Week 7 -->
+            <div>
+                <div class="status-week-heading">
+                    Week 7 (Reporting Period: Week 7)
+                    <span class="health-pill on-track">On Track</span>
+                </div>
+
+                <h3>Project Health</h3>
+                <p>
+                    <strong>Status:</strong> On Track; early planning and setup work underway.
+                </p>
+
+                <h3>Executive Summary</h3>
+                <p>
+                    Focused on locating analytics projects, exploring website builder options, and finding an initial resume
+                    template. This week was about confirming inputs and tools before deeper work begins.
+                </p>
+
+                <h3>✅ Accomplishments This Week</h3>
+                <ol>
+                    <li>Confirmed which data analytics projects to feature.</li>
+                    <li>Identified potential website builders for the portfolio.</li>
+                    <li>Located the existing resume to use as a starting point.</li>
+                </ol>
+
+                <h3>📅 Plan for Next Week</h3>
+                <ol>
+                    <li>Test portfolio website options.</li>
+                    <li>Continue work on the certificate.</li>
+                    <li>Start reviewing and organizing project materials.</li>
+                    <li>Look for Data Analytics positions to target.</li>
+                </ol>
+
+                <h3>📌 Upcoming Milestones</h3>
+                <table class="status-milestone-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Target Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Data Analytics Certificate</td>
+                            <td>11/29/2025</td>
+                            <td>At Risk</td>
+                        </tr>
+                        <tr>
+                            <td>Complete Portfolio</td>
+                            <td>11/30/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                        <tr>
+                            <td>Apply to Job Position</td>
+                            <td>12/09/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔄 Changes Since Last Report</h3>
+                <ul>
+                    <li>No major changes; still in early planning and setup phase.</li>
+                </ul>
+            </div>
+
+            <!-- Week 6 -->
+            <div>
+                <div class="status-week-heading">
+                    Week 6 (Reporting Period: Week 6)
+                    <span class="health-pill on-track">On Track</span>
+                </div>
+
+                <h3>Project Health</h3>
+                <p>
+                    <strong>Status:</strong> On Track; project just kicked off.
+                </p>
+
+                <h3>Executive Summary</h3>
+                <p>
+                    This week focused on starting the project, reviewing all tasks, and beginning the Google Data Analytics
+                    certificate. It served as the foundation week for planning and prioritizing work.
+                </p>
+
+                <h3>✅ Accomplishments This Week</h3>
+                <ol>
+                    <li>Reviewed and reprioritized project tasks.</li>
+                    <li>Started searching for website builders or methods to create the portfolio.</li>
+                    <li>Began the Google Data Analytics certificate.</li>
+                </ol>
+
+                <h3>📅 Plan for Next Week</h3>
+                <ol>
+                    <li>Research and review portfolio creation options in more detail.</li>
+                    <li>Make progress on the certificate.</li>
+                    <li>Locate and gather existing data analysis projects.</li>
+                    <li>Begin working on the resume deliverable.</li>
+                </ol>
+
+                <h3>📌 Upcoming Milestones</h3>
+                <table class="status-milestone-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Target Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Data Analytics Certificate</td>
+                            <td>11/29/2025</td>
+                            <td>At Risk</td>
+                        </tr>
+                        <tr>
+                            <td>Complete Portfolio</td>
+                            <td>11/30/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                        <tr>
+                            <td>Apply to Job Position</td>
+                            <td>12/09/2025</td>
+                            <td>On Track</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔄 Changes Since Last Report</h3>
+                <ul>
+                    <li>No previous report; this is the first week of formal tracking.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
