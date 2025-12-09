@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Additional Documents - Data Analytics Job Entry</title>
+<title>Project Closure - Data Analytics Job Entry</title>
 <style>
 * {
     margin: 0;
@@ -178,7 +178,28 @@ body {
     font-size: 14px;
 }
 
-/* table for interview log */
+/* generic table */
+.closure-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 20px;
+    font-size: 13px;
+}
+
+.closure-table th,
+.closure-table td {
+    padding: 8px 10px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.closure-table th {
+    background: #f6f8fa;
+    font-weight: 600;
+}
+
+/* reuse stakeholder-table style for the interview tab */
 .stakeholder-table {
     width: 100%;
     border-collapse: collapse;
@@ -238,24 +259,24 @@ body {
 <nav class="top-nav">
     <a href="index.html">Project Charter</a>
     <a href="status.html">Status Reports</a>
-    <a href="closure.html" class="active">Additional Docs</a>
+    <a href="closure.html" class="active">Closure</a>
 </nav>
 
 <div class="container">
     <div class="header">
-        <h1>Additional Career Documents</h1>
-        <p>Project closure, behavioral interview stories, and stakeholder interview notes.</p>
+        <h1>Project Closure</h1>
+        <p>Closure documentation, STAR stories, and stakeholder interview notes for this project.</p>
     </div>
 
     <div class="content">
         <div class="section">
             <div class="section-header">
-                <h2 class="section-title">📁 Supporting Documents</h2>
+                <h2 class="section-title">📁 Project Closure Documentation</h2>
             </div>
             <div class="section-content">
                 <p style="font-size:14px; color:#495057; margin-bottom:16px;">
-                    These documents supplement the project charter and portfolio: they help you close the project formally,
-                    prepare for behavioral interviews, and capture insights from stakeholder conversations.
+                    These documents formally close out the Data Analytics Job Entry project and capture key learning
+                    from the semester.
                 </p>
 
                 <!-- Tab navigation -->
@@ -274,79 +295,281 @@ body {
                     </button>
                 </div>
 
-                <!-- Tab content -->
                 <div class="tab-panes">
-                    <!-- Project Closure -->
+
+                    <!-- 🔽🔽 THIS IS THE PART YOU ASKED TO UPDATE: PROJECT CLOSURE DOCUMENT 🔽🔽 -->
                     <div class="tab-pane active" id="tab-closure">
-                        <h3>Project Closure Document</h3>
-                        <p>A concise summary you can hand to your professor or keep for your own records when this project is officially “closed.”</p>
+                        <h3>Comprehensive Project Closure Document</h3>
 
-                        <h4>1. Project Summary</h4>
+                        <h4>1. Project Information</h4>
+                        <table class="closure-table">
+                            <tr>
+                                <th>Project Title</th>
+                                <td>Data Analytics Job Entry</td>
+                            </tr>
+                            <tr>
+                                <th>Project Manager</th>
+                                <td>Tehreem Butt</td>
+                            </tr>
+                            <tr>
+                                <th>Project Description</th>
+                                <td>
+                                    This project brings together several components to prepare me for a Data
+                                    Analytics role: a job gap analysis, multiple data analytics projects, an
+                                    updated resume, and a portfolio that presents my work as a cohesive,
+                                    professional package.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Project Closure Type</th>
+                                <td>Perpetual Closure – no official end, ongoing improvements</td>
+                            </tr>
+                            <tr>
+                                <th>Closing Summary</th>
+                                <td>
+                                    I met the main objectives of the project by:
+                                    completing two new Data Analytics projects,
+                                    reformatting the Airbnb Los Angeles and Hollywood Farmers Market
+                                    projects, revising and updating my resume, and developing a professional
+                                    portfolio.
+                                </td>
+                            </tr>
+                        </table>
+
+                        <h4>2. Deliverables Summary</h4>
+                        <p>Major deliverables and completion status at project closure.</p>
+                        <table class="closure-table">
+                            <thead>
+                            <tr>
+                                <th>Deliverable</th>
+                                <th>Original Definition of Done</th>
+                                <th>Actual Progress at Closure</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Resume</td>
+                                <td>All sections completed and updated to current information; reviewed by trusted individuals.</td>
+                                <td>Resume is updated and aligned with Data Analytics roles.</td>
+                                <td>Complete ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Hollywood Farmers Market Data Analytics Project</td>
+                                <td>Formatted for portfolio with relevant visualizations compiled and organized.</td>
+                                <td>Project was reformatted, polished, and added to the portfolio.</td>
+                                <td>Complete ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Airbnb LA Data Analytics Project</td>
+                                <td>Formatted for portfolio with visuals and summary clearly presented.</td>
+                                <td>Project was reformatted, polished, and added to the portfolio.</td>
+                                <td>Complete ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Chicago Crime Rates 2001–Present Project</td>
+                                <td>Formatted and documented for portfolio, with clear analysis and visuals.</td>
+                                <td>Project was successfully completed and formatted for inclusion.</td>
+                                <td>Complete ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Job Gap Analysis</td>
+                                <td>Job listings included; document summarizing skills required vs. current skills.</td>
+                                <td>A written gap analysis document was created using real job postings.</td>
+                                <td>Complete ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Google Data Analytics Certificate</td>
+                                <td>Certificate granted and ready to upload to portfolio.</td>
+                                <td>Certificate work is in progress but not yet complete at closure.</td>
+                                <td>In Progress ⚠️</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>3. Change Log</h4>
+                        <p>Summary of scope and plan changes made during the project.</p>
+                        <table class="closure-table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Change Description</th>
+                                <th>Reason for Change</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>10/19/2025</td>
+                                <td>Included another data analytics project (Chicago Crime Rates).</td>
+                                <td>To incorporate a more recent analysis that matched course goals.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>10/28/2025</td>
+                                <td>Added Job Gap Analysis as a formal deliverable.</td>
+                                <td>Recommended by Professor Espinoza to better connect skills to market needs.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>11/18/2025</td>
+                                <td>Extended deadlines for some deliverables.</td>
+                                <td>Recognized that the Google Data Analytics certificate would not be completed on the original schedule.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>4. Performance Analysis</h4>
+                        <h5>4.1 Budget Performance</h5>
+                        <p>I stayed within the planned budget for the project.</p>
+
+                        <h5>4.2 Schedule Performance</h5>
+                        <p>
+                            I met all semester milestones except completing the Google Data Analytics certificate.
+                            Overall, my time estimates for most deliverables were realistic and flexible enough to adjust
+                            when new work was added. :contentReference[oaicite:4]{index=4}
+                        </p>
+
+                        <h4>5. Stakeholder Management</h4>
                         <ul>
-                            <li><strong>Project Name:</strong> Data Analytics Job Entry</li>
-                            <li><strong>Owner:</strong> Tehreem Fatima Butt</li>
-                            <li><strong>Duration:</strong> [Start date] – [End date]</li>
-                            <li><strong>Objective:</strong> Apply to at least one Data Analytics position using a professional portfolio and supporting materials.</li>
+                            <li>The professor provided weekly check-ins and feedback on the charter and deliverables, which helped me get started and stay aligned.</li>
+                            <li>Peers and trusted individuals offered feedback that highlighted issues I might not have noticed on my own.</li>
                         </ul>
 
-                        <h4>2. Outcomes vs. Objectives</h4>
+                        <h4>6. Risk and Issue Summary</h4>
                         <ul>
-                            <li>Portfolio website completed? (Y/N – brief explanation)</li>
-                            <li>Data analytics projects published? (HFM, Airbnb LA, others)</li>
-                            <li>Google Data Analytics certificate status</li>
-                            <li>Job application submitted (when/where)</li>
+                            <li>
+                                <strong>Risk:</strong> Falling behind on the Google Data Analytics certificate.<br/>
+                                <strong>Response:</strong> Set aside additional time for certificate work, but still could not complete it before the deadline.
+                            </li>
+                            <li>
+                                <strong>Risk:</strong> Not completing the Chicago Crime Data Analytics project which was added later.<br/>
+                                <strong>Response:</strong> Allocated more time to the project; successfully completed it and avoided that risk.
+                            </li>
                         </ul>
 
-                        <h4>3. Lessons Learned</h4>
+                        <h4>7. What Went Well? (Successes &amp; Best Practices)</h4>
                         <ul>
-                            <li>What went well (tools, schedule, approach).</li>
-                            <li>What was challenging (time, scope, technology).</li>
-                            <li>What you would do differently next time.</li>
+                            <li>Using Microsoft Planner helped keep me on track and reminded me of important deadlines.</li>
+                            <li>Writing weekly status reports kept my progress visible and made it easier to adjust when I was falling behind.</li>
                         </ul>
 
-                        <h4>4. Next Steps / Follow-On Work</h4>
+                        <h4>8. What Didn't Go Well? (Challenges)</h4>
                         <ul>
-                            <li>Update portfolio with new projects or certifications.</li>
-                            <li>Continue applying to additional roles/companies.</li>
-                            <li>Iterate on resume and STAR stories using recruiter feedback.</li>
+                            <li>Balancing coursework with project deadlines and allocating enough time for everything was difficult.</li>
+                            <li>I struggled to schedule my time efficiently and underestimated how demanding the full project would be.</li>
                         </ul>
+
+                        <h4>9. What Would You Do Differently?</h4>
+                        <ul>
+                            <li>Set clearer and stricter expectations about what I want to complete and by when.</li>
+                            <li>Create and follow a more detailed daily schedule for demanding projects.</li>
+                            <li>Be more rigid about time blocks so progress remains consistent throughout the semester.</li>
+                        </ul>
+
+                        <h4>10. Lessons Learned Register</h4>
+                        <table class="closure-table">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>SDLC Stage</th>
+                                <th>Problem</th>
+                                <th>Consequence</th>
+                                <th>Lesson Learned / Advice</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>10/21/2025</td>
+                                <td>Execution</td>
+                                <td>Unclear goal.</td>
+                                <td>delay on execution phase and partial rework on delievrables</td>
+                                <td>Come up with a clear goal/what you wish to accomplish with your project.</td>
+                            </tr>
+                            <tr>
+                                <td>11/18/2021</td>
+                                <td>Execution</td>
+                                <td>Realized the deadlines I set would no tbe met and needed to be extended.</td>
+                                <td>Needed to re-evaluate deliverables and allocate more time.</td>
+                                <td>Always keep a form of planner, even if plans change it is good to keep track of your schedule.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <h4>11. Key Takeaways for Future Projects</h4>
+                        <ul>
+                            <li>Create and follow a stricter timetable.</li>
+                            <li>Avoid adding large deliverables in the middle of the execution phase.</li>
+                            <li>Set clear priorities for each deliverable so you know what matters most when time is tight.</li>
+                        </ul>
+
+                        <h4>12. Formal Sign-Off</h4>
+                        <p><strong>Project Manager (Tehreem Butt):</strong></p>
+                        <p>
+                            “I completed the project to the best of my abilities and hope to keep improving on it.”
+                        </p>
+                        <p><strong>Stakeholder Feedback Highlights:</strong></p>
+                        <ul>
+                            <li>Yessel Torres – “Your projects look amazing, the analysis visuals are very good!”</li>
+                            <li>Shaza Fatima – "Your resume is looking better and is well-polished. You did great."</li>
+                      
+                            <li>Other peers provided verbal and written feedback that guided improvements to my resume and portfolio.</li>
+                        </ul>
+
+                        <h4>13. Recognition</h4>
+                        <p>
+                            Thank you to my team members – Fernando Olvera, Luis Medina, Mohammad Ansarii,
+                            and Patrick Gregorio – for consistently meeting, providing feedback, and offering advice on
+                            how to improve my resume and what to do when I was falling behind on the certificate.
+                            Thank you to Professor Espinoza for guidance on my deliverables and for helping me
+                            define a clear, achievable project goal.
+                        </p>
+
+                        <h4>14. What’s Next?</h4>
+                        <p>
+                            I plan to continue developing my skills in data analytics and expanding my portfolio with
+                            more projects. I will complete the Google Data Analytics certificate and pursue additional
+                            credentials that strengthen my profile for Data Analytics roles. 
+                        </p>
                     </div>
+                    <!-- 🔼🔼 END OF UPDATED PROJECT CLOSURE DOCUMENT TAB 🔼🔼 -->
 
-                    <!-- STAR Stories -->
+                    <!-- STAR STORIES TAB -->
                     <div class="tab-pane" id="tab-star">
-                        <h3>STAR Stories (Behavioral Interview Bank)</h3>
-                        <p>Use this space to keep short, reusable stories for behavioral interviews using the STAR format (Situation, Task, Action, Result).</p>
+                        <h3>STAR Stories</h3>
 
-                        <h4>Template</h4>
+                        <h4>Problem-solving and decision-making situations</h4>
                         <ul>
-                            <li><strong>Situation:</strong> Brief context (course, project, challenge).</li>
-                            <li><strong>Task:</strong> What you needed to achieve.</li>
-                            <li><strong>Action:</strong> What you specifically did (tools, analysis, collaboration).</li>
-                            <li><strong>Result:</strong> Quantified impact or clear outcome.</li>
+                            <li><strong>Situation:</strong> During a data analytics group project, our group was having difficulties with the size of our data that was going to be used for the analysis. The main issue stemmed from the fact that I had already vastly cleaned and reduced the data. There was worry that there wouldn't be enough substance to create analysis and visualizations from. With the due date approaching, we needed to solve this issue first and foremost.</li>
+                            <li><strong>Task:</strong> My role was to clean the data and start working on visualizations using Elastic Search and Kibana (data analysis programs).</li>
+                            <li><strong>Action:</strong> The first time I reduced the data was mostly by reducing the rows and shortening the time frame. This wasn’t enough, so after looking at the rows of data and brainstorming solutions, we decided to keep the range within 2025. I decided to reduce the data all the way to 2025, reducing columns, but to keep our analysis capabilities versatile, I brought back rows, which brought us to a perfect compromise.</li>
+                            <li><strong>Result:</strong> The issue was successfully resolved through quick brainstorming and finding ways to come to a compromise. We were still able to conduct an interesting analysis, despite it not being what we initially wanted. I learned that sacrifices will need to be made to meet requirements, regardless of what you want. Making the best decision for the overall project's success, rather than prioritizing your own wants, is the most important priority.</li>
                         </ul>
 
                         <h4>Example Story #1 – Data Cleaning &amp; Insight</h4>
                         <ul>
                             <li><strong>Situation:</strong> In my Hollywood Farmers Market analytics project, the dataset contained missing and inconsistent entries for vendor sales.</li>
                             <li><strong>Task:</strong> Prepare a reliable dataset to analyze sales trends and vendor performance for the market managers.</li>
-                            <li><strong>Action:</strong> Used Excel/Sheets (and optionally Python) to clean the data, handled missing values with clear rules, created calculated fields, and documented data assumptions.</li>
-                            <li><strong>Result:</strong> Produced a clear dashboard that highlighted top vendors and underperforming areas, helping stakeholders identify opportunities to increase revenue and optimize vendor placement.</li>
+                            <li><strong>Action:</strong> Used spreadsheets (and, where needed, Python) to clean the data, handled missing values with clear rules, created calculated fields, and documented assumptions.</li>
+                            <li><strong>Result:</strong> Produced a dashboard that highlighted top vendors and underperforming areas, helping stakeholders identify opportunities to improve revenue and vendor placement.</li>
                         </ul>
 
                         <h4>Example Story #2 – Managing a Semester-Long Project</h4>
                         <ul>
                             <li><strong>Situation:</strong> For my Managing IT Projects course, I needed to deliver a complete portfolio and job-ready materials while balancing other classes.</li>
-                            <li><strong>Task:</strong> Plan and execute the project using a predictive methodology, hitting intermediate milestones (resume, projects, certificate, application).</li>
-                            <li><strong>Action:</strong> Broke work into a WBS, scheduled tasks in Microsoft Planner, updated weekly status reports, and reprioritized when risks appeared (e.g., certificate delays).</li>
-                            <li><strong>Result:</strong> Completed the portfolio, organized analytics projects, and submitted at least one job application by the deadline, demonstrating planning, follow-through, and adaptability.</li>
+                            <li><strong>Task:</strong> Plan and execute the project using a predictive methodology and hit milestones for resume, projects, certificate, and final job application.</li>
+                            <li><strong>Action:</strong> Created a WBS, scheduled tasks in Microsoft Planner, updated weekly status reports, and reprioritized when risks appeared (especially around the certificate).</li>
+                            <li><strong>Result:</strong> Delivered a working portfolio, organized analytics projects, and prepared to submit job applications, demonstrating planning, follow-through, and adaptability.</li>
                         </ul>
 
                         <p style="font-size:13px; color:#6c757d;">
-                            Tip: Add 3–5 more STAR stories here (teamwork, conflict resolution, learning new tools, handling ambiguity) and reference this tab before interviews.
+                            Tip: Add 3–5 more STAR stories (teamwork, conflict resolution, learning new tools, handling ambiguity) and review them before interviews.
                         </p>
                     </div>
 
-                    <!-- Stakeholder Interview Documentation -->
+                    <!-- STAKEHOLDER INTERVIEWS TAB -->
                     <div class="tab-pane" id="tab-stakeholder">
                         <h3>Stakeholder Interview Documentation</h3>
                         <p>Use this tab to capture notes from conversations with stakeholders (professor, peers, potential employers, mentors).</p>
@@ -354,26 +577,26 @@ body {
                         <h4>Interview Log</h4>
                         <table class="stakeholder-table">
                             <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Stakeholder</th>
-                                    <th>Role</th>
-                                    <th>Key Insights / Requirements</th>
-                                </tr>
+                            <tr>
+                                <th>Date</th>
+                                <th>Stakeholder</th>
+                                <th>Role</th>
+                                <th>Key Insights / Requirements</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>[MM/DD]</td>
-                                    <td>Professor</td>
-                                    <td>Course Instructor</td>
-                                    <td>Example: Portfolio must clearly show at least two analytics projects, a resume, and a way to contact you.</td>
-                                </tr>
-                                <tr>
-                                    <td>[MM/DD]</td>
-                                    <td>Peer / Friend</td>
-                                    <td>Reviewer</td>
-                                    <td>Example: Home page should have a short, friendly introduction and a clear “View My Work” button.</td>
-                                </tr>
+                            <tr>
+                                <td>[MM/DD]</td>
+                                <td>Professor Espinoza</td>
+                                <td>Course Instructor</td>
+                                <td>Portfolio should clearly show at least two analytics projects, a resume, and a way to contact me.</td>
+                            </tr>
+                            <tr>
+                                <td>[MM/DD]</td>
+                                <td>Peer / Friend</td>
+                                <td>Reviewer</td>
+                                <td>Home page should have a short, friendly introduction and a clear “View My Work” button.</td>
+                            </tr>
                             </tbody>
                         </table>
 
@@ -392,7 +615,8 @@ body {
                             <li>[ ] Simplify or visually highlight key metrics on dashboards.</li>
                         </ul>
                     </div>
-                </div>
+
+                </div> <!-- /.tab-panes -->
             </div>
         </div>
 
