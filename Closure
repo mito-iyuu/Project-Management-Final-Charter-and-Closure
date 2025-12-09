@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Additional Documents - Data Analytics Job Entry</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #2c3e50;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Top nav across all pages */
+.top-nav {
+    max-width: 1200px;
+    margin: 0 auto 16px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 999px;
+    padding: 8px 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #495057;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.top-nav a:hover {
+    background: #e9ecef;
+}
+
+.top-nav a.active {
+    background: #667eea;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/><rect fill="rgba(255,255,255,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+    opacity: 0.5;
+}
+
+.header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.header p {
+    font-size: 16px;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    padding: 30px 40px 40px;
+}
+
+.section {
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.section-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px 30px;
+}
+
+.section-title {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-content {
+    padding: 30px;
+}
+
+/* TAB STYLES */
+
+.tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid #dee2e6;
+    background: #f8f9fa;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+    background: #e9ecef;
+}
+
+.tab-button.active {
+    background: #667eea;
+    color: #fff;
+    border-color: #667eea;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-pane h3 {
+    margin-bottom: 8px;
+}
+
+.tab-pane p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #495057;
+}
+
+.tab-pane ul {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+/* table for interview log */
+.stakeholder-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.stakeholder-table th {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 10px 8px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stakeholder-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 13px;
+}
+
+.stakeholder-table tr:hover {
+    background: #f8f9fa;
+}
+
+.stakeholder-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html">Project Charter</a>
+    <a href="status.html">Status Reports</a>
+    <a href="docs.html" class="active">Additional Docs</a>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h1>Additional Career Documents</h1>
+        <p>Project closure, behavioral interview stories, and stakeholder interview notes.</p>
+    </div>
+
+    <div class="content">
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">📁 Supporting Documents</h2>
+            </div>
+            <div class="section-content">
+                <p style="font-size:14px; color:#495057; margin-bottom:16px;">
+                    These documents supplement the project charter and portfolio: they help you close the project formally,
+                    prepare for behavioral interviews, and capture insights from stakeholder conversations.
+                </p>
+
+                <!-- Tab navigation -->
+                <div class="tab-nav" id="extra-tabs">
+                    <button class="tab-button active"
+                            onclick="switchTab('extra-tabs','tab-closure')">
+                        Project Closure Document
+                    </button>
+                    <button class="tab-button"
+                            onclick="switchTab('extra-tabs','tab-star')">
+                        STAR Stories
+                    </button>
+                    <button class="tab-button"
+                            onclick="switchTab('extra-tabs','tab-stakeholder')">
+                        Stakeholder Interview Documentation
+                    </button>
+                </div>
+
+                <!-- Tab content -->
+                <div class="tab-panes">
+                    <!-- Project Closure -->
+                    <div class="tab-pane active" id="tab-closure">
+                        <h3>Project Closure Document</h3>
+                        <p>A concise summary you can hand to your professor or keep for your own records when this project is officially “closed.”</p>
+
+                        <h4>1. Project Summary</h4>
+                        <ul>
+                            <li><strong>Project Name:</strong> Data Analytics Job Entry</li>
+                            <li><strong>Owner:</strong> Tehreem Fatima Butt</li>
+                            <li><strong>Duration:</strong> [Start date] – [End date]</li>
+                            <li><strong>Objective:</strong> Apply to at least one Data Analytics position using a professional portfolio and supporting materials.</li>
+                        </ul>
+
+                        <h4>2. Outcomes vs. Objectives</h4>
+                        <ul>
+                            <li>Portfolio website completed? (Y/N – brief explanation)</li>
+                            <li>Data analytics projects published? (HFM, Airbnb LA, others)</li>
+                            <li>Google Data Analytics certificate status</li>
+                            <li>Job application submitted (when/where)</li>
+                        </ul>
+
+                        <h4>3. Lessons Learned</h4>
+                        <ul>
+                            <li>What went well (tools, schedule, approach).</li>
+                            <li>What was challenging (time, scope, technology).</li>
+                            <li>What you would do differently next time.</li>
+                        </ul>
+
+                        <h4>4. Next Steps / Follow-On Work</h4>
+                        <ul>
+                            <li>Update portfolio with new projects or certifications.</li>
+                            <li>Continue applying to additional roles/companies.</li>
+                            <li>Iterate on resume and STAR stories using recruiter feedback.</li>
+                        </ul>
+                    </div>
+
+                    <!-- STAR Stories -->
+                    <div class="tab-pane" id="tab-star">
+                        <h3>STAR Stories (Behavioral Interview Bank)</h3>
+                        <p>Use this space to keep short, reusable stories for behavioral interviews using the STAR format (Situation, Task, Action, Result).</p>
+
+                        <h4>Template</h4>
+                        <ul>
+                            <li><strong>Situation:</strong> Brief context (course, project, challenge).</li>
+                            <li><strong>Task:</strong> What you needed to achieve.</li>
+                            <li><strong>Action:</strong> What you specifically did (tools, analysis, collaboration).</li>
+                            <li><strong>Result:</strong> Quantified impact or clear outcome.</li>
+                        </ul>
+
+                        <h4>Example Story #1 – Data Cleaning &amp; Insight</h4>
+                        <ul>
+                            <li><strong>Situation:</strong> In my Hollywood Farmers Market analytics project, the dataset contained missing and inconsistent entries for vendor sales.</li>
+                            <li><strong>Task:</strong> Prepare a reliable dataset to analyze sales trends and vendor performance for the market managers.</li>
+                            <li><strong>Action:</strong> Used Excel/Sheets (and optionally Python) to clean the data, handled missing values with clear rules, created calculated fields, and documented data assumptions.</li>
+                            <li><strong>Result:</strong> Produced a clear dashboard that highlighted top vendors and underperforming areas, helping stakeholders identify opportunities to increase revenue and optimize vendor placement.</li>
+                        </ul>
+
+                        <h4>Example Story #2 – Managing a Semester-Long Project</h4>
+                        <ul>
+                            <li><strong>Situation:</strong> For my Managing IT Projects course, I needed to deliver a complete portfolio and job-ready materials while balancing other classes.</li>
+                            <li><strong>Task:</strong> Plan and execute the project using a predictive methodology, hitting intermediate milestones (resume, projects, certificate, application).</li>
+                            <li><strong>Action:</strong> Broke work into a WBS, scheduled tasks in Microsoft Planner, updated weekly status reports, and reprioritized when risks appeared (e.g., certificate delays).</li>
+                            <li><strong>Result:</strong> Completed the portfolio, organized analytics projects, and submitted at least one job application by the deadline, demonstrating planning, follow-through, and adaptability.</li>
+                        </ul>
+
+                        <p style="font-size:13px; color:#6c757d;">
+                            Tip: Add 3–5 more STAR stories here (teamwork, conflict resolution, learning new tools, handling ambiguity) and reference this tab before interviews.
+                        </p>
+                    </div>
+
+                    <!-- Stakeholder Interview Documentation -->
+                    <div class="tab-pane" id="tab-stakeholder">
+                        <h3>Stakeholder Interview Documentation</h3>
+                        <p>Use this tab to capture notes from conversations with stakeholders (professor, peers, potential employers, mentors).</p>
+
+                        <h4>Interview Log</h4>
+                        <table class="stakeholder-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Stakeholder</th>
+                                    <th>Role</th>
+                                    <th>Key Insights / Requirements</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[MM/DD]</td>
+                                    <td>Professor</td>
+                                    <td>Course Instructor</td>
+                                    <td>Example: Portfolio must clearly show at least two analytics projects, a resume, and a way to contact you.</td>
+                                </tr>
+                                <tr>
+                                    <td>[MM/DD]</td>
+                                    <td>Peer / Friend</td>
+                                    <td>Reviewer</td>
+                                    <td>Example: Home page should have a short, friendly introduction and a clear “View My Work” button.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4 style="margin-top:20px;">Interview Question Bank</h4>
+                        <ul>
+                            <li>What is most important to you when reviewing a student portfolio?</li>
+                            <li>What skills or tools do you want to see highlighted for a Data Analytics role?</li>
+                            <li>Is the current layout easy to understand and navigate?</li>
+                            <li>What would make this portfolio stand out compared to others?</li>
+                        </ul>
+
+                        <h4>Action Items from Stakeholder Feedback</h4>
+                        <ul>
+                            <li>[ ] Update navigation labels or add a “Projects” call-to-action.</li>
+                            <li>[ ] Clarify problem statement and outcomes for each analytics project.</li>
+                            <li>[ ] Simplify or visually highlight key metrics on dashboards.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- /.content -->
+</div> <!-- /.container -->
+
+<script>
+function switchTab(groupId, tabId) {
+    const group = document.getElementById(groupId);
+    if (!group) return;
+
+    const buttons = group.querySelectorAll('.tab-button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    const clicked = Array.from(buttons).find(btn =>
+        btn.getAttribute('onclick') &&
+        btn.getAttribute('onclick').includes("'" + tabId + "'")
+    );
+    if (clicked) clicked.classList.add('active');
+
+    const panes = document.querySelectorAll('.tab-pane');
+    panes.forEach(p => p.classList.remove('active'));
+
+    const activePane = document.getElementById(tabId);
+    if (activePane) activePane.classList.add('active');
+}
+</script>
+</body>
+</html>
